@@ -3,6 +3,11 @@
         <h1 class="text-3xl font-bold mb-4">Sign up</h1>
     </div>
     <div class="w-full">
+        @if (session()->has('success'))
+        <div class="p-2 mb-2 bg-green-300 text-green-700 shadow rounded">
+            {{ session('success') }}
+        </div>
+        @endif
         <form class="w-full" wire:submit.prevent="submit">
             <div class="mb-4">
                 <input type="text" wire:model.debounce.1000ms="form.name" id="name" placeholder="Name" class="w-full p-2 appearance-none border rounded py-2 px-3 text-gray-700 leading-tight @error('form.name') border-red-500 @enderror">

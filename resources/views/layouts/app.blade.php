@@ -16,10 +16,15 @@
 <body class="flex flex-wrap justify-center">
     <div class="flex w-full py-4 px-6 justify-between space-x-4 bg-purple-500 text-white">
         <a href="/">Home</a>
+        @guest
         <div class="flex space-x-2">
             <a href="/login">Login</a>
             <a href="/register">Register</a>
         </div>
+        @endguest
+        @auth
+        <livewire:logout />
+        @endauth
     </div>
     <main class="my-6">
         {{ $slot }}
